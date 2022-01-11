@@ -22,11 +22,11 @@ container:
   mizuAgent:
     image:
       repository: "709825985650.dkr.ecr.us-east-1.amazonaws.com/up9/mizufree"
-      tag: "0.21.29"
+      tag: "0.21.38"
   tapper:
     image:
       repository: "709825985650.dkr.ecr.us-east-1.amazonaws.com/up9/mizufree"
-      tag: "0.21.29"
+      tag: "0.21.38"
   basenine:
     name: "basenine"
     port: 9099
