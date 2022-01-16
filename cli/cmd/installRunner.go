@@ -4,10 +4,11 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/up9inc/mizu/shared/kubernetes"
-	core "k8s.io/api/core/v1"
 	"regexp"
 	"time"
+
+	"github.com/up9inc/mizu/shared/kubernetes"
+	core "k8s.io/api/core/v1"
 
 	"github.com/creasty/defaults"
 	"github.com/up9inc/mizu/cli/config"
@@ -101,7 +102,7 @@ func watchApiServerPodReady(ctx context.Context, kubernetesProvider *kubernetes.
 	podWatchHelper := kubernetes.NewPodWatchHelper(kubernetesProvider, podExactRegex)
 	eventChan, errorChan := kubernetes.FilteredWatch(ctx, podWatchHelper, []string{config.Config.MizuResourcesNamespace}, podWatchHelper)
 
-	timeAfter := time.After(1 * time.Minute)
+	timeAfter := time.After(10 * time.Minute)
 	for {
 		select {
 		case wEvent, ok := <-eventChan:
